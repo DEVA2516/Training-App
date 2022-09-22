@@ -8,29 +8,47 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { WildCardComponent } from './wild-card/wild-card.component';
 
 const routes: Routes = [
+
   {
-    path:'aboutus',
-    component:AboutUsComponent,
-    children:[
+    path: '',
+    redirectTo: 'aboutus',
+    pathMatch: 'full'
+  },
+  {
+    path: 'aboutus',
+    component: AboutUsComponent,
+    children: [
       {
-        path:'comp1',
-        component:ComponentOneComponent
-      },{
-        path:':comp2',
-        component:ComponentTwoComponent
+        path: 'comp1',
+        component: ComponentOneComponent
+      }, {
+        path: ':comp2',
+        component: ComponentTwoComponent
       }
     ]
   }, {
-    path:'contactus',
-    component:ContactUsComponent
-  },{
-    path:':userid',
-    component:WildCardComponent
-  },{
-    path:'**',
-    component:PageNotFoundComponent
+    path: 'contactus',
+    component: ContactUsComponent,
+    children: [
+      {
+        path: 'user',
+        component: WildCardComponent,
+        children: [
+          {
+            path: ':userid',
+            component: ComponentTwoComponent
+          }
+        ]
+      }
+    ]
+  }, {
+    path: ':userid',
+    component: WildCardComponent
+  }, {
+    path: '**',
+    component: PageNotFoundComponent
   }
-];
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

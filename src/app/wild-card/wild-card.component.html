@@ -1,1 +1,8 @@
 <p>wild-card works!</p>
+
+<ng-container *ngFor="let user of arrayOfUsers">
+    <!-- <a [routerLink]="[user.id]">{{user.first_name}}</a><br> -->
+    <button (click)="clickToNavigate(user.id)">{{user.first_name}}</button><br>
+</ng-container>
+
+<router-outlet></router-outlet>

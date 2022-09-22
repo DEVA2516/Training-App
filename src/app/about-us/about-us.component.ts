@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Route, Routes } from '@angular/router';
+import { ActivatedRoute, Route, Router, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-about-us',
@@ -8,7 +8,7 @@ import { ActivatedRoute, Route, Routes } from '@angular/router';
 })
 export class AboutUsComponent implements OnInit {
 
-  constructor(private routes:ActivatedRoute) {  }
+  constructor(private routes:ActivatedRoute,private router:Router) {  }
 
   ngOnInit(): void {
     this.routes.params.subscribe(userData=>{
@@ -16,5 +16,8 @@ export class AboutUsComponent implements OnInit {
       
     })
   }
-
+  clickToNavigate(): void {
+      this.router.navigate(['contactus']);
+  }
 }
+

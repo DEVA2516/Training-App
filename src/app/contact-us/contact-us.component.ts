@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact-us',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactUsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router,private routes:ActivatedRoute) { }
 
   ngOnInit(): void {
+    setTimeout(() => {
+     // this.router.navigate(['user'],{relativeTo:this.routes});
+    }, 2000);
   }
 
 }

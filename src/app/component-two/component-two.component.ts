@@ -7,12 +7,14 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./component-two.component.scss']
 })
 export class ComponentTwoComponent implements OnInit {
+  userId: any;
 
-  constructor(private route:ActivatedRoute) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe(paramsData => {
-      console.log(paramsData);
+    this.route.params.subscribe(userId=> {
+      console.log(userId);
+      this.userId = userId;
     })
   }
 

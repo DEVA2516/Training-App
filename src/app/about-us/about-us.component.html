@@ -1,4 +1,7 @@
 <p>about-us works!</p>
 <a routerLink="comp1">component 1</a>
+
+<p (click)="clickToNavigate()">click to navigate contactus </p>
+
 <a [routerLink]="['/','aboutus','comp2']">component 2</a>
 <router-outlet></router-outlet>
