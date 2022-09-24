@@ -11,7 +11,8 @@ import { ComponentOneComponent } from './component-one/component-one.component';
 import { ComponentTwoComponent } from './component-two/component-two.component';
 //import { HttpClientModule } from @angular
 import { HttpClientModule } from  '@angular/common/http';
-
+import {FormMModule} from './form-m/form-m.module'
+import {InputTextModule} from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HttpClientModule } from  '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormMModule
   ],
   providers: [],
   bootstrap: [AppComponent]

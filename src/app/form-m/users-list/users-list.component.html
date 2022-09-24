@@ -1,7 +1,12 @@
 <p>users-list works!</p>
-<!-- <p>{{ usersList[0].id}}</p> -->
-<p>{{usersList|json}}</p>
-<ng-container *ngFor="let user of usersList">
-    <p>{{user.id}}</p>
-    
-</ng-container>
+<!-- <p>{{usersList}}</p> -->
+<ul>
+    <h3>
+        Name
+    </h3>
+    <ng-container *ngFor="let user of usersList">
+            <li>{{user.name}}</li> <br>   
+    </ng-container>
+</ul>
+
+

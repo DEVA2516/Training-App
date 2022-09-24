@@ -9,7 +9,7 @@ import { AppService } from 'src/app/app.service';
 })
 export class UsersListComponent implements OnInit {
 
-  usersList:any = [{'id':1,'name':'hello'},{'id':2,'name':"hi"}]
+  usersList:any = []
 
   constructor(private appService:AppService) { }
 
@@ -17,7 +17,7 @@ export class UsersListComponent implements OnInit {
     this.appService.getAllUsers().subscribe( (data)=>{
       console.log(data);
        this.usersList = data;
-       console.log(this.usersList);
+       console.log('mmm',this.usersList);
        
     });
   }
