@@ -9,6 +9,8 @@ import { WildCardComponent } from './wild-card/wild-card.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ComponentOneComponent } from './component-one/component-one.component';
 import { ComponentTwoComponent } from './component-two/component-two.component';
+import { FormComponent } from './form/form.component';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { ComponentTwoComponent } from './component-two/component-two.component';
     WildCardComponent,
     PageNotFoundComponent,
     ComponentOneComponent,
-    ComponentTwoComponent
+    ComponentTwoComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,

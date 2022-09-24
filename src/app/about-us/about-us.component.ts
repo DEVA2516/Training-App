@@ -13,7 +13,6 @@ export class AboutUsComponent implements OnInit {
   ngOnInit(): void {
     this.routes.params.subscribe(userData=>{
       console.log(userData);
-      
     })
   }
   clickToNavigate(): void {
