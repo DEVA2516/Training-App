@@ -52,6 +52,12 @@ const routes: Routes = [
     loadChildren:()=>import('./parent-module/parent-module.module')
     .then(m=>m.ParentModuleModule)
   },
+
+  {
+    path:'go-to-forms',
+    loadChildren:()=>import('./form-m/form-m-routing.module')
+    .then(a => a.FormMRoutingModule)
+  },
   
   {
     path: '**',

@@ -9,7 +9,8 @@ import { WildCardComponent } from './wild-card/wild-card.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ComponentOneComponent } from './component-one/component-one.component';
 import { ComponentTwoComponent } from './component-two/component-two.component';
-import { FormComponent } from './form/form.component';
+//import { HttpClientModule } from @angular
+import { HttpClientModule } from  '@angular/common/http';
 
 
 @NgModule({
@@ -21,11 +22,11 @@ import { FormComponent } from './form/form.component';
     PageNotFoundComponent,
     ComponentOneComponent,
     ComponentTwoComponent,
-    FormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

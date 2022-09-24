@@ -2,6 +2,12 @@
 <a routerLink="comp1">component 1</a>
 
 <p (click)="clickToNavigate()">click to navigate contactus </p>
+<!-- <p>{{list | json}}</p> -->
+
+<ng-container *ngFor="let li of list">
+    <li>{{li.id}}</li>
+</ng-container>
+
 
 <a [routerLink]="['/','aboutus','comp2']">component 2</a>
 <router-outlet></router-outlet>
