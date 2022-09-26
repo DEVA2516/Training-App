@@ -1,6 +1,7 @@
 
 <th>Id</th>
 <th>Name</th>
+<th>Email</th>
 <th>Address</th>
 <th>Action</th>
 <tbody>
@@ -8,9 +9,9 @@
     <tr *ngFor="let li of list">
         <td>{{li.id}}</td>
         <td>{{li.name}}</td>
-        <td>{{li.address.street}},{{li.address.suite}},
-            {{li.address.city}},{{li.address.zipcode}}</td>
-        <td><button>Edit </button></td>
+        <td>{{li.email}}</td>
+        <td>{{li.message}}</td>
+        <td><button (click)="clkToEdit(li.id)">Edit </button></td>
     </tr>
 
 </tbody>

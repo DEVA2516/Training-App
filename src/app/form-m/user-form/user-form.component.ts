@@ -17,10 +17,10 @@ export class UserFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  clkToSubmit() {
-    console.log(this.userName,this.email);
+  // clkToSubmit() {  
+  //   console.log(this.userName,this.email);
     
-    this.appService.createUser({ 'name': this.userName, 'email': this.email, 'address': this.address })
-  }
+  //   this.appService.createUser({ 'name': this.userName, 'email': this.email, 'address': this.address })
+  // }
 
 }

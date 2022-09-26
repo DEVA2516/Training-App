@@ -14,7 +14,7 @@ const routes: Routes = [
 
   {
     path: '',
-    redirectTo: 'aboutus',
+    redirectTo: 'forms-list',
     pathMatch: 'full'
   },
   {
@@ -67,6 +67,10 @@ const routes: Routes = [
   },
   {
     path:'forms-adduser',
+    component:FormsAdduserComponent
+  },
+  {
+    path:'forms-edit/:id',
     component:FormsAdduserComponent
   },
   
