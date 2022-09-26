@@ -22,9 +22,11 @@ export class AppService {
   }
  
   updateUser(data:object){
-
     return this.httpClient.put(environment.apiUrl+`/updatebyid`,data)
+  }
 
+  deleteUser(userId:number){
+    return this.httpClient.delete(environment.apiUrl+`/deletebyid?id=${userId}`)
   }
 
 }
