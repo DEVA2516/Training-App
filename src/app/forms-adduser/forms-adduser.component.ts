@@ -40,8 +40,6 @@ export class FormsAdduserComponent implements OnInit {
     })
   }
 
-
-
   createUser() {
 
     this.appService.createUser(
@@ -51,9 +49,7 @@ export class FormsAdduserComponent implements OnInit {
         message: this.address
       })
       .subscribe(data => {
-        console.log(data);
-
-        this.routes.navigate(['forms-list']);
+          this.routes.navigate(['forms-list']);
       });
   }
 
@@ -65,7 +61,6 @@ export class FormsAdduserComponent implements OnInit {
         message: this.address,
         id: this.userId
       }).subscribe(data => { 
-        console.log(data);
         this.routes.navigate(['forms-list']);
        })
   }
