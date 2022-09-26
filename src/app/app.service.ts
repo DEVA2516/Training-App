@@ -10,4 +10,8 @@ export class AppService {
   getAllUsers(){
     return this.httpClient.get("https://jsonplaceholder.typicode.com/users");
   }
+
+  createUser(users:object){
+    return this.httpClient.post("http://localhost:3000/posts",users)
+  }
 }

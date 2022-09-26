@@ -4,6 +4,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ComponentOneComponent } from './component-one/component-one.component';
 import { ComponentTwoComponent } from './component-two/component-two.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { FormsAdduserComponent } from './forms-adduser/forms-adduser.component';
+import { FormsListComponent } from './forms-list/forms-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 //import { ParentComComponent } from './parent-module/parent-com/parent-com.component';
 import { WildCardComponent } from './wild-card/wild-card.component';
@@ -57,6 +59,15 @@ const routes: Routes = [
     path:'go-to-forms',
     loadChildren:()=>import('./form-m/form-m-routing.module')
     .then(a => a.FormMRoutingModule)
+  },
+
+  {
+    path:'forms-list',
+    component:FormsListComponent
+  },
+  {
+    path:'forms-adduser',
+    component:FormsAdduserComponent
   },
   
   {

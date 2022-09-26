@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AboutUsComponent } from './about-us/about-us.component';
@@ -13,6 +14,9 @@ import { ComponentTwoComponent } from './component-two/component-two.component';
 import { HttpClientModule } from  '@angular/common/http';
 import {FormMModule} from './form-m/form-m.module'
 import {InputTextModule} from 'primeng/inputtext';
+import { FormsComponent } from './forms/forms.component';
+import { FormsListComponent } from './forms-list/forms-list.component';
+import { FormsAdduserComponent } from './forms-adduser/forms-adduser.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +27,16 @@ import {InputTextModule} from 'primeng/inputtext';
     PageNotFoundComponent,
     ComponentOneComponent,
     ComponentTwoComponent,
+    FormsComponent,
+    FormsListComponent,
+    FormsAdduserComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormMModule
+    FormMModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
