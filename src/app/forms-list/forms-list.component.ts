@@ -21,7 +21,7 @@ export class FormsListComponent implements OnInit {
   }
 
   clkToEdit(id:number) {
-  // this.rotues.navigate(['forms-edit',id]);
+  this.rotues.navigate(['/forms-edit',id]);
   this.appservice.getUserById(id).subscribe(data => {
     console.log(data);
   })

@@ -9,35 +9,64 @@ import { AppService } from '../app.service';
 })
 export class FormsAdduserComponent implements OnInit {
 
-  userName:string='';
-  email:string='';
-  address:string='';
-  id:number = 5;
-  data:any;
+  userName: string = '';
+  email: any = '';
+  address: string = '';
+  data: any;
+  isUpdated: boolean = false;
+  userId = 0;
 
-  constructor(private appService:AppService,private routes:Router,private router:ActivatedRoute) { }
+  constructor(private appService: AppService, private routes: Router, private router: ActivatedRoute) { }
 
   ngOnInit(): void {
-    // this.router.params.subscribe(data =>{
-    //   console.log(data['id'])
-    //   if(data['id'])
-    // })
+    this.router.params.subscribe(data => {
+      console.log(data['id'])
+      this.userId = data['id'];
+      this.isUpdated = data.hasOwnProperty("id") ? true : false;
+
+      if (this.isUpdated) {
+        this.getById()
+      }
+
+    })
   }
 
-  clkToSubmit(){
-   
-    console.log(this.userName,this.email);
+  getById() {
+    this.appService.getUserById(this.userId).subscribe(data => {
+      this.data = data
+      this.userName = this.data[0]['name'];
+      this.email = this.data[0]['email'];
+      this.address = this.data[0]['message'];
+    })
+  }
 
-    this.data = {
-     // 'id':this.id++,
-      'name':this.userName,
-      'email':this.email,
-      'message':this.address
-    }
-    
-    this.appService.createUser(this.data).subscribe(data=>{
-      console.log(data);
-      this.routes.navigate(['forms-list']);
-    });
+
+
+  createUser() {
+
+    this.appService.createUser(
+      {
+        name: this.userName,
+        email: this.email,
+        message: this.address
+      })
+      .subscribe(data => {
+        console.log(data);
+
+        this.routes.navigate(['forms-list']);
+      });
+  }
+
+  updateUser() {
+    this.appService.updateUser(
+      {
+        name: this.userName,
+        email: this.email,
+        message: this.address,
+        id: this.userId
+      }).subscribe(data => { 
+        console.log(data);
+        this.routes.navigate(['forms-list']);
+       })
   }
 }

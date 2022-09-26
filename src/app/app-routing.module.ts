@@ -13,7 +13,7 @@ import { WildCardComponent } from './wild-card/wild-card.component';
 const routes: Routes = [
 
   {
-    path: '',
+    path:'',
     redirectTo: 'forms-list',
     pathMatch: 'full'
   },
