@@ -8,10 +8,15 @@ export class AppService {
   constructor(private httpClient:HttpClient) { }
 
   getAllUsers(){
-    return this.httpClient.get("https://jsonplaceholder.typicode.com/users");
+    return this.httpClient.get("http://localhost:3001/sql");
   }
 
-  createUser(users:object){
-    return this.httpClient.post("http://localhost:3000/posts",users)
+  createUser(data:object){
+    //console.log(users);
+    return this.httpClient.post("http://localhost:3001/postData",data)
+  }
+
+  getUserById(id:number){
+    return this.httpClient.get("http://localhost:3001/getById/id="+id)
   }
 }
