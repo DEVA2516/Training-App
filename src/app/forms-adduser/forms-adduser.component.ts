@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppService } from '../app.service';
 
@@ -15,10 +16,20 @@ export class FormsAdduserComponent implements OnInit {
   data: any;
   isUpdated: boolean = false;
   userId = 0;
+  user:any;
 
   constructor(private appService: AppService, private routes: Router, private router: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    this.user = new FormGroup ({
+      name:new FormControl(null,[Validators.minLength(4)]),
+      email:new FormControl(null,[Validators.required,Validators.minLength(6)]),
+      address:new FormControl(null,null)
+    })
+
+    console.log(this.user);
+    
     this.router.params.subscribe(data => {
       console.log(data['id'])
       this.userId = data['id'];
@@ -27,8 +38,15 @@ export class FormsAdduserComponent implements OnInit {
       if (this.isUpdated) {
         this.getById()
       }
-
     })
+  }
+
+  get form() {
+  return this.user.controls
+  }
+
+  get name() {
+    return this.user.controls.name
   }
 
   getById() {

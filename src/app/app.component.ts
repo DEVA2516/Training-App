@@ -11,6 +11,7 @@ export class AppComponent {
 
   constructor(private routes:Router){
   }
+  
   addUser(){
     this.routes.navigate(['forms-adduser']);
   }
