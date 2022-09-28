@@ -1,19 +1,56 @@
-
+<!-- 
 <div class="user-form">
 
     <p>{{ isUpdated ? "Edit User" : "Add User" }}</p>
 
     <form action="">
         <label for="name">Name</label>
-        <input type="text" id="name" [(ngModel)]="userName" name="uName"><br><br>
+        <input type="text" id="name" required [(ngModel)]="userName" name="uName" #name="ngModel"><br><br>
+        <ng-container *ngIf="name.invalid && (name.dirty || name .touched)">
+            <p style="color:red">Name is empty</p>
+        </ng-container>
 
         <label for="email">Email</label>
-        <input type="text" id="email" [(ngModel)]="email" name="uEmail"><br><br>
+        <input type="text" id="email" required [(ngModel)]="email" #mail="ngModel" [ngModelOptions]="{standalone:true}"><br><br>
+        <ng-container *ngIf="mail.invalid">
+            <p style="color: red;">Email is empty</p>
+        </ng-container>
 
         <label for="address">Address</label>
         <input type="text" id="address" [(ngModel)]="address" name="uAdd"><br><br>
 
-        <button *ngIf="!isUpdated" (click)="createUser()">Submit</button>
+        <button [disabled]="name.invalid" *ngIf="!isUpdated" (click)="createUser()">Submit</button>
+        <button *ngIf="isUpdated" (click)="updateUser()">Submit</button>
+    </form> -->
+<!-- </div> -->
+
+
+<div class="user-form">
+
+    <p>{{ isUpdated ? "Edit User" : "Add User" }}</p>
+
+    <form action="" [formGroup]="user">
+
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required formControlName="name"><br><br>
+
+        <ng-container *ngIf="form['name'].invalid && (form['name'].touched || form['name'].dirty)">
+            <p *ngIf="name.errors?.required" style="color:red">error in input</p>
+            <p *ngIf="name.errors?.minlength" style="color:red">min length of 4</p>
+        </ng-container>
+
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" formControlName="email"><br><br>
+
+        <ng-container *ngIf="form['email'].invalid && (form['email'].touched || form['email'].dirty)">
+            <p *ngIf="form['email'].errors?.required" style="color:red">error in input</p>
+            <p *ngIf="form['email'].errors?.minlength" style="color:red">min length of 4</p>
+        </ng-container>
+
+        <label for="address">Address</label>
+        <input type="text" id="address" name="uAdd" required formControlName="address"><br><br>
+
+        <button [disabled]="" *ngIf="!isUpdated" (click)="createUser()">Submit</button>
         <button *ngIf="isUpdated" (click)="updateUser()">Submit</button>
     </form>
 </div>
