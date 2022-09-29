@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { AuthGuard } from './auth.guard';
 import { ComponentOneComponent } from './component-one/component-one.component';
 import { ComponentTwoComponent } from './component-two/component-two.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
@@ -63,7 +64,8 @@ const routes: Routes = [
 
   {
     path:'forms-list',
-    component:FormsListComponent
+    component:FormsListComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:'forms-adduser',

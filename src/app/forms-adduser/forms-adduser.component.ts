@@ -22,6 +22,10 @@ export class FormsAdduserComponent implements OnInit {
 
   ngOnInit(): void {
 
+    if (!localStorage.getItem('token')){
+      this.routes.navigate(['aboutus']);
+    }
+
     this.user = new FormGroup ({
       name:new FormControl(null,[Validators.minLength(4)]),
       email:new FormControl(null,[Validators.required,Validators.minLength(6)]),
