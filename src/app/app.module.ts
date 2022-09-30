@@ -14,9 +14,11 @@ import { ComponentTwoComponent } from './component-two/component-two.component';
 import { HttpClientModule } from  '@angular/common/http';
 import {FormMModule} from './form-m/form-m.module'
 import {InputTextModule} from 'primeng/inputtext';
+import {ButtonModule} from 'primeng/button';
 import { FormsComponent } from './forms/forms.component';
 import { FormsListComponent } from './forms-list/forms-list.component';
 import { FormsAdduserComponent } from './forms-adduser/forms-adduser.component';
+import {TableModule} from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,10 @@ import { FormsAdduserComponent } from './forms-adduser/forms-adduser.component';
     HttpClientModule,
     FormMModule,
     FormsModule,
-    ReactiveFormsModule
+    ButtonModule,
+    InputTextModule,
+    ReactiveFormsModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

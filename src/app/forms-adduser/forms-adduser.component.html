@@ -27,30 +27,30 @@
 
 <div class="user-form">
 
-    <p>{{ isUpdated ? "Edit User" : "Add User" }}</p>
+    <h3 style="color: blue ;">{{ isUpdated ? "Edit User" : "Add User" }}</h3>
 
     <form action="" [formGroup]="user">
 
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required formControlName="name"><br><br>
+        <br><label for="name">Name</label><br>
+        <input type="text" id="name" name="name" required formControlName="name" pInputText>    <br><br>
 
         <ng-container *ngIf="form['name'].invalid && (form['name'].touched || form['name'].dirty)">
-            <p *ngIf="name.errors?.required" style="color:red">error in input</p>
-            <p *ngIf="name.errors?.minlength" style="color:red">min length of 4</p>
+            <span *ngIf="name.errors?.required" style="color:red">Name is required</span>
+            <span *ngIf="name.errors?.minlength" style="color:red">Needs 4+ characters</span>
         </ng-container>
 
-        <label for="email">Email</label>
-        <input type="text" id="email" name="email" formControlName="email"><br><br>
+        <br><label for="email">Email</label><br>
+        <input type="text" id="email" name="email" formControlName="email" pInputText> <br><br>
 
         <ng-container *ngIf="form['email'].invalid && (form['email'].touched || form['email'].dirty)">
-            <p *ngIf="form['email'].errors?.required" style="color:red">error in input</p>
-            <p *ngIf="form['email'].errors?.minlength" style="color:red">min length of 4</p>
+            <span *ngIf="form['email'].errors?.required" style="color:red">email is required</span>
+            <span *ngIf="form['email'].errors?.minlength" style="color:red">minimum 8+ characters</span>
         </ng-container>
 
-        <label for="address">Address</label>
-        <input type="text" id="address" name="uAdd" required formControlName="address"><br><br>
+        <br><label for="address">Address</label><br>
+        <input type="text" id="address" name="uAdd" required formControlName="message" pInputText> <br><br>
 
-        <button [disabled]="" *ngIf="!isUpdated" (click)="createUser()">Submit</button>
-        <button *ngIf="isUpdated" (click)="updateUser()">Submit</button>
+        <br><button [disabled]="user.invalid && user.touched" pButton *ngIf="!isUpdated" (click)="createUser()" label="SUBMIT"></button>
+        <button [disabled]="user.invalid && user.touched" pButton *ngIf="isUpdated" (click)="updateUser()" label="SUBMIT"></button>
     </form>
 </div>

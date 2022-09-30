@@ -10,9 +10,6 @@ import { AppService } from '../app.service';
 })
 export class FormsAdduserComponent implements OnInit {
 
-  userName: string = '';
-  email: any = '';
-  address: string = '';
   data: any;
   isUpdated: boolean = false;
   userId = 0;
@@ -29,7 +26,7 @@ export class FormsAdduserComponent implements OnInit {
     this.user = new FormGroup ({
       name:new FormControl(null,[Validators.minLength(4)]),
       email:new FormControl(null,[Validators.required,Validators.minLength(6)]),
-      address:new FormControl(null,null)
+      message:new FormControl(null,null)
     })
 
     console.log(this.user);
@@ -55,34 +52,33 @@ export class FormsAdduserComponent implements OnInit {
 
   getById() {
     this.appService.getUserById(this.userId).subscribe(data => {
-      this.data = data
-      this.userName = this.data[0]['name'];
-      this.email = this.data[0]['email'];
-      this.address = this.data[0]['message'];
+      console.log(data);
+      this.data = data;
+      
+      this.user.patchValue(this.data[0]);
     })
   }
 
   createUser() {
-
-    this.appService.createUser(
-      {
-        name: this.userName,
-        email: this.email,
-        message: this.address
-      })
+    console.log(this.user.value);
+    if(this.user.invalid){
+      this.user.markAllAsTouched()
+    }
+    else{
+      this.appService.createUser(this.user.value)
       .subscribe(data => {
           this.routes.navigate(['forms-list']);
       });
+    }
+    
+ 
   }
 
   updateUser() {
-    this.appService.updateUser(
-      {
-        name: this.userName,
-        email: this.email,
-        message: this.address,
-        id: this.userId
-      }).subscribe(data => { 
+   this.user.value['id'] = this.userId;
+   console.log(this.user.value)
+
+    this.appService.updateUser(this.user.value).subscribe(data => { 
         this.routes.navigate(['forms-list']);
        })
   }

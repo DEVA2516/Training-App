@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+.list {
+    .p-datatable .p-datatable-tbody>tr>td {
+      text-align: center;
+      border: 1px solid #dee2e6;
+      border-width: 0 0 1px 0;
+      padding: 1rem 1rem;
+    }
+  }
+  

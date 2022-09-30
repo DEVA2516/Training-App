@@ -65,7 +65,7 @@ const routes: Routes = [
   {
     path:'forms-list',
     component:FormsListComponent,
-    canActivate:[AuthGuard]
+   // canActivate:[AuthGuard]
   },
   {
     path:'forms-adduser',
