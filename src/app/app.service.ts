@@ -9,7 +9,7 @@ export class AppService {
   constructor(private httpClient: HttpClient) { }
 
   getAllUsers() {
-    return this.httpClient.get(environment.apiUrl + "/sql", {
+    return this.httpClient.get(environment.apiUrl + "/view", {
       headers: new HttpHeaders(
         {
           'Authorization': `bearer ${localStorage.getItem('token')}`

@@ -12,13 +12,13 @@ import { ComponentOneComponent } from './component-one/component-one.component';
 import { ComponentTwoComponent } from './component-two/component-two.component';
 //import { HttpClientModule } from @angular
 import { HttpClientModule } from  '@angular/common/http';
-import {FormMModule} from './form-m/form-m.module'
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 import { FormsComponent } from './forms/forms.component';
 import { FormsListComponent } from './forms-list/forms-list.component';
 import { FormsAdduserComponent } from './forms-adduser/forms-adduser.component';
 import {TableModule} from 'primeng/table';
+import { FormMModule } from './form-m/form-m.module';
 
 @NgModule({
   declarations: [
@@ -37,12 +37,12 @@ import {TableModule} from 'primeng/table';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormMModule,
     FormsModule,
     ButtonModule,
     InputTextModule,
     ReactiveFormsModule,
-    TableModule
+    TableModule,
+    FormMModule
   ],
   providers: [],
   bootstrap: [AppComponent]
